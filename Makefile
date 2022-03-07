@@ -59,11 +59,12 @@ server: $(FT_PRINTF) $(LIBFT) $(S_OBJ)
 
 bin/%.o: src/%.c
 	@echo $(BLUE)"[Compilation]"$(WHITE)": $< "
+	@mkdir -p bin
 	$(CC) $(CFLAGS) -I $(INCS_PATH) -I ft_printf/include/ -c $< -o $@
 
 clean:
 	@echo $(RED)"[Deleting Object Files]"$(WHITE)
-	@rm -rf $(C_OBJ) $(S_OBJ)
+	@rm -rf bin
 	@rm -rf	$(INCS_PATH)/minitalk.h.gch
 
 fclean: clean 
